@@ -6,6 +6,7 @@ import org.codehaus.jackson.JsonGenerator;
 import org.codehaus.jackson.JsonParser;
 import org.codehaus.jackson.map.DeserializationConfig;
 import org.codehaus.jackson.map.ObjectMapper;
+import org.codehaus.jackson.type.TypeReference;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -34,6 +35,14 @@ public class JsonUtils {
     public static <T> T fromJson(String json, Class<T> clazz) {
         try {
             return objectMapper.readValue(json, clazz);
+        } catch (IOException e) {
+            throw new RuntimeException(e.getMessage(), e);
+        }
+    }
+
+    public static <T> T fromJson(String json, TypeReference tr) {
+        try {
+            return objectMapper.readValue(json, tr);
         } catch (IOException e) {
             throw new RuntimeException(e.getMessage(), e);
         }
