@@ -19,7 +19,7 @@ import java.util.Map;
 public class JsonUtils {
 
     private static ObjectMapper objectMapper = getDefaultObjectMapper();
-    public static final String YYYY_MM_DD_HH_MM_SS = "YYYY-mm-dd HH:mm:ss";
+    public static final String YYYY_MM_DD_HH_MM_SS = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
     private static Gson gson = new GsonBuilder().serializeNulls().setDateFormat(YYYY_MM_DD_HH_MM_SS).create(); //!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     // Serializes nulls
