@@ -45,6 +45,8 @@ public class TestApi1 {
         String rrJson = JsonUtils.toJson(rr);
         System.out.println("s = " + rrJson);
 
+        rr = JsonUtils.fromJson(rrJson, ResellersResponse.class);
+        System.out.println("rr = " + rr);
     }
 
 }
