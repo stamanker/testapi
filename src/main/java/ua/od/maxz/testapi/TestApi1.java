@@ -36,6 +36,15 @@ public class TestApi1 {
         String jsonResellers = JsonUtils.toJson(resellers);
         System.out.println("jsonResellers = " + jsonResellers);
         System.out.println("object resellers deserialized = " + JsonUtils.fromJson(jsonResellers, new TypeReference<List<Reseller>>(){}));
+
+        // --- 4
+
+        ResellersResponse rr = new ResellersResponse(resellers);
+        rr.addResseller(new Reseller(3, "fn3", "ln3", "a3@a.com", "login3", "slug3", new Date(), new Date())); // just example of another way to use
+
+        String rrJson = JsonUtils.toJson(rr);
+        System.out.println("s = " + rrJson);
+
     }
 
 }
