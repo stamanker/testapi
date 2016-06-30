@@ -14,13 +14,12 @@ import java.util.Map;
 
 /**
  * User: maxz
- * Date: 19.04.2016
  */
 public class JsonUtils {
 
     private static ObjectMapper objectMapper = getDefaultObjectMapper();
     public static final String YYYY_MM_DD_HH_MM_SS = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
-    private static Gson gson = new GsonBuilder().serializeNulls().setDateFormat(YYYY_MM_DD_HH_MM_SS).create(); //!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    private static Gson gson = new GsonBuilder().serializeNulls().setDateFormat(YYYY_MM_DD_HH_MM_SS).create(); //!!!
 
     // Serializes nulls
     public static String getJsonAsString(Map data) {
