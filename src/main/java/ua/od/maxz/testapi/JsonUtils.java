@@ -1,7 +1,5 @@
 package ua.od.maxz.testapi;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import org.codehaus.jackson.JsonGenerator;
 import org.codehaus.jackson.JsonParser;
 import org.codehaus.jackson.map.DeserializationConfig;
@@ -19,16 +17,9 @@ public class JsonUtils {
 
     private static ObjectMapper objectMapper = getDefaultObjectMapper();
     public static final String YYYY_MM_DD_HH_MM_SS = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
-    private static Gson gson = new GsonBuilder().serializeNulls().setDateFormat(YYYY_MM_DD_HH_MM_SS).create(); //!!!
-
-    // Serializes nulls
-    public static String getJsonAsString(Map data) {
-        return gson.toJson(data);//Set null in ES for null values in PageData
-    }
-
 
     public static Map<String, Object> decode2Map(String json) {
-        return gson.fromJson(json, Map.class);
+        return fromJson(json, Map.class);
     }
 
     public static <T> T fromJson(String json, Class<T> clazz) {
